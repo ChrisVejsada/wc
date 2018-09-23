@@ -25,12 +25,12 @@ public class wc {
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
             reader.mark(readAheadLimit);
-            collectinfourpasses(reader);
+            readingdata(reader);
             /*
             multiple reads is inefficient
              */
             reader.reset();
-            collectinonepass(reader);
+            readingdata(reader);
         }
         catch(FileNotFoundException e){
             usage();
@@ -38,4 +38,28 @@ public class wc {
         }
 
     }
+    static class wcdata implements Consumer<String>{
+        /*
+        Best to use long since it can hold a lot of data and be assigned to all the variables
+        to make it much easier to organize.
+        */
+        private lon
+    }
+    private static void readingdata(BufferedReader reader) throws IOException{
+        reader.reset();
+        System.out.println("Character count = " + reader.lines().flatMapToInt(String::chars).count());
+
+        reader.reset();
+        System.out.println("Word count = " + reader.lines().flatMap(nonWordPattern::splitAsStream)
+                .filter(str -> !str.isEmpty()).count());
+
+        reader.reset();
+        System.out.println("Line count = " + reader.lines().count());
+
+        wcdata wc = reader.lines().parallel().collect(wcdata::new,wcdata::take,wcdata::list);
+        System.out.println(wc);
+
+    }
+
+
 }
