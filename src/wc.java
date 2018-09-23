@@ -55,13 +55,6 @@ public class wc {
         reader.reset();
         System.out.println("Line count = " + reader.lines().count());
 
-        wcdata wc = reader.lines().parallel().collect(wcdata::new,wcdata::accept,wcdata::list);
-        System.out.println(wc);
-
-    }
-    private static void readingdataone(BufferedReader reader){
-        wcdata wc = reader.lines().parallel().collect(wcdata::new,wcdata::accept,wcdata::list);
-        System.out.println(wc);
     }
 
     private static class wcdata implements Consumer<String>{
@@ -69,7 +62,7 @@ public class wc {
         private long lineCount;
         private long wordCount;
 
-
+        @Override
         public void accept(String line){
             charCount += line.length();
             lineCount++;
@@ -82,7 +75,6 @@ public class wc {
             lineCount += stat.lineCount;
             charCount += stat.charCount;
         }
-
 
     }
 
