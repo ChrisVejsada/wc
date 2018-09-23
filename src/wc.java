@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
 public class wc {
+    //starting file
     public static void main(String[] args){
 
     }
