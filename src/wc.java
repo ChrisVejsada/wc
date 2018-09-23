@@ -32,11 +32,6 @@ public class wc {
         try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
             reader.mark(readAheadLimit);
             readingdata(reader);
-            /*
-            multiple reads is inefficient
-             */
-            reader.reset();
-            readingdata(reader);
         }
         catch(FileNotFoundException e){
             usage();
@@ -56,6 +51,7 @@ public class wc {
         System.out.println("Line count = " + reader.lines().count());
 
     }
+
 
     private static class wcdata implements Consumer<String>{
         private long charCount;
