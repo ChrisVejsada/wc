@@ -32,11 +32,17 @@ public class wc {
         try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
             reader.mark(readAheadLimit);
             readingdata(reader);
+            if (args[0].equals("-l")){
+
+            }
+
+
         }
         catch(FileNotFoundException e){
             usage();
             System.err.println(e);
         }
+
 
     }
     private static void readingdata(BufferedReader reader) throws IOException{
