@@ -32,12 +32,36 @@ public class wc {
         try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
             reader.mark(readAheadLimit);
             readingdata(reader);
-            if (args[0].equals("-l")){
-
-            }
-
 
         }
+        if (args[0].equals("-l")) {
+            usage();
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))){
+            reader.mark(readAheadLimit);
+            //System.out.println("Line count = " + reader.lines().count());
+        }
+        if (args[0].equals("-w")) {
+            usage();
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
+            reader.mark(readAheadLimit);
+            reader.reset();
+            //System.out.println("Word count = " + reader.lines().flatMap(nonWord::splitAsStream)
+            //        .filter(str -> !str.isEmpty()).count());
+        }
+        if (args[0].equals("-c")) {
+            usage();
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(args[0]))) {
+            reader.mark(readAheadLimit);
+            reader.reset();
+            //System.out.println("Character count = " + reader.lines().flatMapToInt(String::chars).count());
+        }
+
         catch(FileNotFoundException e){
             usage();
             System.err.println(e);
