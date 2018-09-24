@@ -82,7 +82,7 @@ public class wc {
 
     }
 
-
+    //Private seemed to be the only way to do this part much like the example shown in class
     private static class wcdata implements Consumer<String>{
         private long charCount;
         private long lineCount;
