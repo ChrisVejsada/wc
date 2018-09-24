@@ -24,6 +24,7 @@ public class wc {
                 "wc <filename> will print all of the above");
 
     }
+    //where the program takes the input from the args
     public static void main(String[] args) throws IOException{
         if (args.length != 1){
             usage();
