@@ -7,7 +7,9 @@ import java.util.regex.Pattern;
 import java.io.*;
 
 public class wc {
+
     /*int charCount;
+    int java;
     int wordCount;
     int lineCount;
     */
