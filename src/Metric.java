@@ -24,9 +24,12 @@ public class Metric {
     */
     static void usage(){
         System.out.println("How to use: \n" + "Enter in Metric -l <filename> will print the line count of a file\n" +
-                "wc -c <filename> will print the character count\n" +
-                "wc -w <filename> will print the word count\n" +
-                "wc <filename> will print all of the above");
+                "Metric -c <filename> will print the character count\n" +
+                "Metric -w <filename> will print the word count\n" +
+                "Metric -s <filename> will print out the lines of source code\n" +
+                "Metric -C <filename> will print out the comments in the code\n" +
+                "Metric -h <filename> will print out usage instructions\n" +
+                "Metric <filename> will print all of the above");
 
     }
     //where the program takes the input from the args
@@ -39,6 +42,10 @@ public class Metric {
             reader.mark(readAheadLimit);
             readingdata(reader);
 
+        }
+        if (args[0].equals("-h")) {
+            usage();
+            return;
         }
         if (args[0].equals("-l")) {
             usage();
@@ -67,6 +74,14 @@ public class Metric {
             reader.reset();
             //System.out.println("Character count = " + reader.lines().flatMapToInt(String::chars).count());
         }
+        /*if (args[0].equals("-s")){
+            usage();
+            return;
+        }
+        if (args[0].equals("-C")){
+            usage();
+            return;
+        }*/
 
         catch(FileNotFoundException e){
             usage();
