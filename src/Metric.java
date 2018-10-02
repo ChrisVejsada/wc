@@ -4,9 +4,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
+//import picocli.CommandLine.Option;
+//import picocli.CommandLine.Parameters;
+import java.io.File;
 import java.io.*;
 
-public class wc {
+public class Metric {
 
     /*int charCount;
     int java;
@@ -17,10 +20,10 @@ public class wc {
     private static final Pattern nonWord = Pattern.compile("\\W");
     /*
     This program is meant to count words,characters and lines in a given file and show that number. If the user
-    inputs wc then the program should spit out
+    inputs Metric then the program should spit out
     */
     static void usage(){
-        System.out.println("How to use: \n" + "Enter in wc -l <filename> will print the line count of a file\n" +
+        System.out.println("How to use: \n" + "Enter in Metric -l <filename> will print the line count of a file\n" +
                 "wc -c <filename> will print the character count\n" +
                 "wc -w <filename> will print the word count\n" +
                 "wc <filename> will print all of the above");
@@ -86,7 +89,7 @@ public class wc {
     }
 
     //Private seemed to be the only way to do this part much like the example shown in class
-    private static class wcdata implements Consumer<String>{
+    private static class Metricdata implements Consumer<String>{
         private long charCount;
         private long lineCount;
         private long wordCount;
@@ -99,7 +102,7 @@ public class wc {
             wordCount += nonWord.splitAsStream(line).filter(str -> !str.isEmpty()).count();
         }
 
-        public void list(wcdata stat){
+        public void list(Metricdata stat){
             wordCount += stat.wordCount;
             lineCount += stat.lineCount;
             charCount += stat.charCount;
