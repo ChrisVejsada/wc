@@ -82,6 +82,11 @@ public class Metric {
             usage();
             return;
         }*/
+        /*if (args[0].equals("-H")) {
+            usage();
+            return;
+        }*/
+
 
         catch(FileNotFoundException e){
             usage();
@@ -124,5 +129,8 @@ public class Metric {
         }
 
     }
+
+}
+class Halstead{
 
 }
