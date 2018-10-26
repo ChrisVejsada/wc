@@ -108,6 +108,9 @@ public class Metric {
 
     }
 
+    public void run(String[] args) {
+    }
+
     //Private seemed to be the only way to do this part much like the example shown in class
     private static class Metricdata implements Consumer<String>{
         private long charCount;
@@ -129,8 +132,5 @@ public class Metric {
         }
 
     }
-
-}
-class Halstead{
 
 }
