@@ -124,7 +124,7 @@ public class Metric {
 
             wordCount += nonWord.splitAsStream(line).filter(str -> !str.isEmpty()).count();
         }
-
+        //Final Word Count + print out stats
         public void list(Metricdata stat){
             wordCount += stat.wordCount;
             lineCount += stat.lineCount;
